@@ -52,9 +52,8 @@ Yes. this plugin is translate ready. But If your language is not available you c
 3. Captcha in Login Form
 4. Captcha in Register Form
 5. Captcha in Lost Password Form
-6. Captcha in Reset Password Form
-7. Advanced noCaptcha reCaptcha Settings
-8. Advanced noCaptcha reCaptcha Setup Instruction
+6. Advanced noCaptcha reCaptcha Settings
+7. Advanced noCaptcha reCaptcha Setup Instruction
 
 == Changelog ==
 
