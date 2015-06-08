@@ -1,6 +1,7 @@
 === Advanced noCaptcha reCaptcha ===
 Contributors: shamim51
 Tags: recaptcha,nocaptcha,no captcha,bot,spam,captcha,contact form 7 captcha,widget,plugin,sidebar,shortcode,page,posts,comments
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=4HKBQ3QFSCPHJ&lc=US&item_name=Front%20End%20PM&item_number=Front%20End%20PM&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Requires at least: 2.8
 Tested up to: 4.2
 Stable tag: trunk
@@ -35,7 +36,7 @@ Show noCaptcha in Comment Form (after Comment textarea before submit button), Co
 == Installation ==
 1. Upload "advanced-nocaptcha-recaptcha" to the "/wp-content/plugins/" directory.
 1. Activate the plugin through the "Plugins" menu in WordPress.
-1. Go to plagin setting page for setup.
+1. Go to plugin settings page for setup.
 
 
 == Frequently Asked Questions ==
