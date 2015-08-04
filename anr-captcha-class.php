@@ -21,7 +21,7 @@ if (!class_exists('anr_captcha_class'))
 					add_action ('fepcf_action_message_before_send', array(&$this, 'fepcf_verify'));
 				}
 			
-			if ( '1' == anr_get_option( 'login' )) {
+			if ( '1' == anr_get_option( 'login' ) && !defined('XMLRPC_REQUEST')) {
 					add_action ('login_form', array(&$this, 'form_field'), 99);
 					add_filter ('wp_authenticate_user', array(&$this, 'login_verify'), 10, 2 );
 				}
@@ -50,6 +50,16 @@ if (!class_exists('anr_captcha_class'))
 					wpcf7_add_shortcode('anr_nocaptcha', array(&$this, 'wpcf7_form_field'), true);
 					add_filter('wpcf7_validate_anr_nocaptcha', array(&$this, 'wpcf7_verify'), 10, 2);
 				}
+				
+			if ( '1' == anr_get_option( 'bb_new' )) {
+					add_action ('bbp_theme_before_topic_form_submit_wrapper', array(&$this, 'form_field'), 99);
+					add_action ('bbp_new_topic_pre_extras', array(&$this, 'bb_new_verify') );
+				}
+				
+			if ( '1' == anr_get_option( 'bb_reply' )) {
+					add_action ('bbp_theme_before_reply_form_submit_wrapper', array(&$this, 'form_field'), 99);
+					add_action ('bbp_new_reply_pre_extras', array(&$this, 'bb_reply_verify'), 10, 2 );
+				}
     	}
 		
 	
@@ -60,7 +70,7 @@ if (!class_exists('anr_captcha_class'))
 			if ( is_user_logged_in() && $loggedin_hide )
 				return;
 				
-			echo anr_captcha_form_field( false );
+			anr_captcha_form_field();
 			
 		}
 		
@@ -177,6 +187,24 @@ if (!class_exists('anr_captcha_class'))
 				}
 
 		return $result;
+		}
+		
+	function bb_new_verify( $forum_id )
+		{
+			
+			if ( ! $this->verify() ) {
+			$error_message = anr_get_option( 'error_message' );
+			bbp_add_error('anr_error', $error_message);
+				}
+		}
+		
+	function bb_reply_verify( $topic_id, $forum_id )
+		{
+			
+			if ( ! $this->verify() ) {
+			$error_message = anr_get_option( 'error_message' );
+			bbp_add_error('anr_error', $error_message);
+				}
 		}
 
 

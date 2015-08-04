@@ -3,14 +3,13 @@
 Plugin Name: Advanced noCaptcha reCaptcha
 Plugin URI: https://shamimbiplob.wordpress.com/contact-us/
 Description: Show noCaptcha in Login, Register, Lost Password, Reset Password, Comment Form (after Comment textarea before submit button). Also can implement in any other form easily.
-Version: 1.1
+Version: 1.2
 Author: Shamim
 Author URI: https://shamimbiplob.wordpress.com/contact-us/
 Text Domain: anr
 License: GPLv2 or later
 */
 //DEFINE
-global $wpdb;
 define('ANR_PLUGIN_DIR',plugin_dir_path( __FILE__ ));
 define('ANR_PLUGIN_URL',plugins_url().'/advanced-nocaptcha-recaptcha/');
 

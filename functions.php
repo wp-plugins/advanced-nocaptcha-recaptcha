@@ -30,19 +30,22 @@ function anr_enqueue_scripts()
 		if ( $language )
 			$lang = "?hl=$language";
 			
-		wp_register_script( 'anr-google-recaptcha-script', "https://www.google.com/recaptcha/api.js$lang", array(), '1.1', true );
+		wp_register_script( 'anr-google-recaptcha-script', "https://www.google.com/recaptcha/api.js$lang", array(), '2.0', true );
 		
 	}
 	
 function anr_login_enqueue_scripts()
     {
 		$language	= trim(anr_get_option( 'language' ));
+		$remove_css	= trim(anr_get_option( 'remove_css' ));
 		
 		$lang	= "";
 		if ( $language )
 			$lang = "?hl=$language";
 			
-		wp_register_script( 'anr-google-recaptcha-script', "https://www.google.com/recaptcha/api.js$lang", array(), '1.1', true );
+		wp_register_script( 'anr-google-recaptcha-script', "https://www.google.com/recaptcha/api.js$lang", array(), '2.0', true );
+		
+		if ( !$remove_css )
 		wp_enqueue_style( 'anr-login-style', ANR_PLUGIN_URL . 'style/style.css' );
 		
 	}
@@ -71,12 +74,25 @@ function anr_include_require_files()
 function anr_captcha_form_field( $echo = true )
 	{
 		$site_key 	= trim(anr_get_option( 'site_key' ));
-		$theme		= anr_get_option( 'theme' );
+		$theme		= anr_get_option( 'theme', 'light' );
+		$size		= anr_get_option( 'size', 'normal' );
 		$no_js		= anr_get_option( 'no_js' );
 		
+		if ( !wp_script_is( 'anr-google-recaptcha-script', 'registered' ) )
+			{
+				$language	= trim(anr_get_option( 'language' ));
+		
+				$lang	= "";
+				if ( $language )
+					$lang = "?hl=$language";
+					
+				wp_register_script( 'anr-google-recaptcha-script', "https://www.google.com/recaptcha/api.js$lang", array(), '2.0', true );
+				
+			}
+			
 		wp_enqueue_script('anr-google-recaptcha-script');
 		
-		$field 		= "<div class='g-recaptcha' data-sitekey='$site_key' data-theme='$theme'></div>";
+		$field 		= "<div class='g-recaptcha' data-sitekey='$site_key' data-theme='$theme' data-size='$size'></div>";
 		
 		if ( $no_js == 1 )
 			{
@@ -135,11 +151,8 @@ function anr_verify_captcha()
 				return false;
 
 		$result = json_decode( $request_body, true );
-		 if ( !isset($result['success']) || !$result['success'] )
-		 	return false;
-			
-		if ( true == $result['success'] )
-			return true;
+		 if ( isset($result['success']) && true == $result['success'] )
+		 	return true;
 
 		return false;
 	}

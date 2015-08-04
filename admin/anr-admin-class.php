@@ -102,7 +102,9 @@ if (!class_exists('anr_admin_class'))
 							__( 'Registration Form', 'anr' )   	=> 'registration',
 							__( 'Lost Password Form', 'anr' )   => 'lost_password',
 							__( 'Reset Password Form', 'anr' )  => 'reset_password',
-							__( 'Comment Form', 'anr' )   		=> 'comment'
+							__( 'Comment Form', 'anr' )   		=> 'comment',
+							__( 'bbPress New topic', 'anr' )   	=> 'bb_new',
+							__( 'bbPress reply to topic', 'anr' )=> 'bb_reply',
 									
 							);
 									
@@ -146,27 +148,34 @@ if (!class_exists('anr_admin_class'))
 		  <option value='dark' ".selected(anr_get_option('theme'), 'dark',false).">Dark</option>
 		  
 		  </select></td></tr>
+		  <tr><td>".__("Size", 'anr')."</td><td><select name='size'>
+		  
+		  <option value='normal' ".selected(anr_get_option('size'), 'normal',false).">Normal</option>
+		  <option value='compact' ".selected(anr_get_option('size'), 'compact',false).">Compact</option>
+		  
+		  </select></td></tr>
 		  <tr><td>".__("Error Message", 'anr')."</td><td><input type='text' size = '40' name='error_message' value='".anr_get_option('error_message', '<strong>ERROR</strong>: Please solve Captcha correctly.')."' /></td></tr>
 		  
 		  <tr><td>".__("Show Captcha on", 'anr')."</td><td>";
 		  
 		  foreach ( $locations as $location => $slug ) {
 		  
-		  echo "<ul colspan='2'><input type='checkbox' name='$slug' value='1' ".checked(anr_get_option($slug), '1', false)." /> $location</ul>";
+		  echo "<ul colspan='2'><label><input type='checkbox' name='$slug' value='1' ".checked(anr_get_option($slug), '1', false)." /> $location</label></ul>";
 		  
 		  }
 		  if ( function_exists('fepcf_plugin_activate'))
-		  echo "<ul colspan='2'><input type='checkbox' name='fep_contact_form' value='1' ".checked(anr_get_option('fep_contact_form'), '1', false)." /> FEP Contact Form</ul>";
+		  echo "<ul colspan='2'><label><input type='checkbox' name='fep_contact_form' value='1' ".checked(anr_get_option('fep_contact_form'), '1', false)." /> FEP Contact Form</label></ul>";
 		  else
-		  echo "<ul colspan='2'><input type='checkbox' name='fep_contact_form' disabled value='1' ".checked(anr_get_option('fep_contact_form'), '1', false)." /> FEP Contact Form (is not installed) <a href='https://wordpress.org/plugins/fep-contact-form/' target='_blank'>Install Now</a></ul>";
+		  echo "<ul colspan='2'><label><input type='checkbox' name='fep_contact_form' disabled value='1' ".checked(anr_get_option('fep_contact_form'), '1', false)." /> FEP Contact Form (is not installed) <a href='https://wordpress.org/plugins/fep-contact-form/' target='_blank'>Install Now</a></label></ul>";
 		  
 		  echo "<ul colspan='2'> For other forms see <a href='".esc_url(admin_url( 'admin.php?page=anr-instruction' ))."'>Instruction</a></ul>";
 		  echo "</td></tr>";
 		  
 		  do_action('anr_admin_setting_form');
 		  
-		  echo "<tr><td colspan='2'><input type='checkbox' name='loggedin_hide' value='1' ".checked(anr_get_option('loggedin_hide'), '1', false)." /> ".__("Hide Captcha for logged in users?", 'anr')."</td></tr>
-		  <tr><td colspan='2'><input type='checkbox' name='no_js' value='1' ".checked(anr_get_option('no_js'), '1', false)." /> ".__("Show captcha if javascript disabled?", 'anr')."<br/><small>".__("If JavaScript is a requirement for your site, we advise that you do NOT check this", 'anr')."</small></td></tr>
+		  echo "<tr><td colspan='2'><label><input type='checkbox' name='loggedin_hide' value='1' ".checked(anr_get_option('loggedin_hide'), '1', false)." /> ".__("Hide Captcha for logged in users?", 'anr')."</label></td></tr>
+		  <tr><td colspan='2'><label><input type='checkbox' name='remove_css' value='1' ".checked(anr_get_option('remove_css'), '1', false)." /> ".__("Remove this plugin's css from login page?", 'anr')."<br/><small>".__("This css increase login page width to adjust with Captcha width.", 'anr')."</small></label></td></tr>
+		  <tr><td colspan='2'><label><input type='checkbox' name='no_js' value='1' ".checked(anr_get_option('no_js'), '1', false)." /> ".__("Show captcha if javascript disabled?", 'anr')."<br/><small>".__("If JavaScript is a requirement for your site, we advise that you do NOT check this.", 'anr')."</small></label></td></tr>
           <tr><td colspan='2'><span><input class='button-primary' type='submit' name='anr-admin-settings-submit' value='".__("Save Options", 'anr')."' /></span></td><td><input type='hidden' name='token' value='$token' /></td></tr>
           </table>
 		  </form>
@@ -214,9 +223,7 @@ function anr_admin_sidebar()
 	  if ( !wp_verify_nonce($options['token'], 'anr-admin-settings'))
 			$errors->add('invalidToken', __('Sorry, your nonce did not verify!', 'anr'));
 	  
-	  do_action('anr_action_admin_setting_before_save', $errors);
-	  
-	  $options = apply_filters('anr_filter_admin_setting_before_save',$options);
+	  $options = apply_filters('anr_filter_admin_setting_before_save', $options, $errors);
 	  //var_dump($options);
 		
 		if (count($errors->get_error_codes())==0){
