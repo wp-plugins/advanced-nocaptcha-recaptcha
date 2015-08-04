@@ -1,0 +1,373 @@
+# Copyright (C) 2015 Advanced noCaptcha reCaptcha
+# This file is distributed under the same license as the Advanced noCaptcha reCaptcha package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Advanced noCaptcha reCaptcha 1.1\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/advanced-nocaptcha-"
+"recaptcha\n"
+"POT-Creation-Date: 2015-04-27 09:06:05+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: admin/anr-admin-class.php:31 admin/anr-admin-class.php:261
+msgid "Settings"
+msgstr ""
+
+#: admin/anr-admin-class.php:33
+msgid "Instruction"
+msgstr ""
+
+#: admin/anr-admin-class.php:50
+msgid "Auto Detect"
+msgstr ""
+
+#: admin/anr-admin-class.php:51
+msgid "Arabic"
+msgstr ""
+
+#: admin/anr-admin-class.php:52
+msgid "Bulgarian"
+msgstr ""
+
+#: admin/anr-admin-class.php:53
+msgid "Catalan"
+msgstr ""
+
+#: admin/anr-admin-class.php:54
+msgid "Chinese (Simplified)"
+msgstr ""
+
+#: admin/anr-admin-class.php:55
+msgid "Chinese (Traditional)"
+msgstr ""
+
+#: admin/anr-admin-class.php:56
+msgid "Croatian"
+msgstr ""
+
+#: admin/anr-admin-class.php:57
+msgid "Czech"
+msgstr ""
+
+#: admin/anr-admin-class.php:58
+msgid "Danish"
+msgstr ""
+
+#: admin/anr-admin-class.php:59
+msgid "Dutch"
+msgstr ""
+
+#: admin/anr-admin-class.php:60
+msgid "English (UK)"
+msgstr ""
+
+#: admin/anr-admin-class.php:61
+msgid "English (US)"
+msgstr ""
+
+#: admin/anr-admin-class.php:62
+msgid "Filipino"
+msgstr ""
+
+#: admin/anr-admin-class.php:63
+msgid "Finnish"
+msgstr ""
+
+#: admin/anr-admin-class.php:64
+msgid "French"
+msgstr ""
+
+#: admin/anr-admin-class.php:65
+msgid "French (Canadian)"
+msgstr ""
+
+#: admin/anr-admin-class.php:66
+msgid "German"
+msgstr ""
+
+#: admin/anr-admin-class.php:67
+msgid "German (Austria)"
+msgstr ""
+
+#: admin/anr-admin-class.php:68
+msgid "German (Switzerland)"
+msgstr ""
+
+#: admin/anr-admin-class.php:69
+msgid "Greek"
+msgstr ""
+
+#: admin/anr-admin-class.php:70
+msgid "Hebrew"
+msgstr ""
+
+#: admin/anr-admin-class.php:71
+msgid "Hindi"
+msgstr ""
+
+#: admin/anr-admin-class.php:72
+msgid "Hungarain"
+msgstr ""
+
+#: admin/anr-admin-class.php:73
+msgid "Indonesian"
+msgstr ""
+
+#: admin/anr-admin-class.php:74
+msgid "Italian"
+msgstr ""
+
+#: admin/anr-admin-class.php:75
+msgid "Japanese"
+msgstr ""
+
+#: admin/anr-admin-class.php:76
+msgid "Korean"
+msgstr ""
+
+#: admin/anr-admin-class.php:77
+msgid "Latvian"
+msgstr ""
+
+#: admin/anr-admin-class.php:78
+msgid "Lithuanian"
+msgstr ""
+
+#: admin/anr-admin-class.php:79
+msgid "Norwegian"
+msgstr ""
+
+#: admin/anr-admin-class.php:80
+msgid "Persian"
+msgstr ""
+
+#: admin/anr-admin-class.php:81
+msgid "Polish"
+msgstr ""
+
+#: admin/anr-admin-class.php:82
+msgid "Portuguese"
+msgstr ""
+
+#: admin/anr-admin-class.php:83
+msgid "Portuguese (Brazil)"
+msgstr ""
+
+#: admin/anr-admin-class.php:84
+msgid "Portuguese (Portugal)"
+msgstr ""
+
+#: admin/anr-admin-class.php:85
+msgid "Romanian"
+msgstr ""
+
+#: admin/anr-admin-class.php:86
+msgid "Russian"
+msgstr ""
+
+#: admin/anr-admin-class.php:87
+msgid "Serbian"
+msgstr ""
+
+#: admin/anr-admin-class.php:88
+msgid "Slovak"
+msgstr ""
+
+#: admin/anr-admin-class.php:89
+msgid "Slovenian"
+msgstr ""
+
+#: admin/anr-admin-class.php:90
+msgid "Spanish"
+msgstr ""
+
+#: admin/anr-admin-class.php:91
+msgid "Spanish (Latin America)"
+msgstr ""
+
+#: admin/anr-admin-class.php:92
+msgid "Swedish"
+msgstr ""
+
+#: admin/anr-admin-class.php:93
+msgid "Thai"
+msgstr ""
+
+#: admin/anr-admin-class.php:94
+msgid "Turkish"
+msgstr ""
+
+#: admin/anr-admin-class.php:95
+msgid "Ukrainian"
+msgstr ""
+
+#: admin/anr-admin-class.php:96
+msgid "Vietnamese"
+msgstr ""
+
+#: admin/anr-admin-class.php:101
+msgid "Login Form"
+msgstr ""
+
+#: admin/anr-admin-class.php:102
+msgid "Registration Form"
+msgstr ""
+
+#: admin/anr-admin-class.php:103
+msgid "Lost Password Form"
+msgstr ""
+
+#: admin/anr-admin-class.php:104
+msgid "Reset Password Form"
+msgstr ""
+
+#: admin/anr-admin-class.php:105
+msgid "Comment Form"
+msgstr ""
+
+#: admin/anr-admin-class.php:116
+msgid "Options successfully saved."
+msgstr ""
+
+#: admin/anr-admin-class.php:124
+msgid "Advanced noCaptcha reCaptcha Settings"
+msgstr ""
+
+#: admin/anr-admin-class.php:125
+msgid ""
+"If you like this plugin please <a href='%s' target='_blank'>Review in "
+"Wordpress.org</a> and give 5 star"
+msgstr ""
+
+#: admin/anr-admin-class.php:129
+msgid "Setting"
+msgstr ""
+
+#: admin/anr-admin-class.php:129
+msgid "Value"
+msgstr ""
+
+#: admin/anr-admin-class.php:131
+msgid "Site Key"
+msgstr ""
+
+#: admin/anr-admin-class.php:132
+msgid "Secret key"
+msgstr ""
+
+#: admin/anr-admin-class.php:134
+msgid "Language"
+msgstr ""
+
+#: admin/anr-admin-class.php:143
+msgid "Theme"
+msgstr ""
+
+#: admin/anr-admin-class.php:149
+msgid "Error Message"
+msgstr ""
+
+#: admin/anr-admin-class.php:151
+msgid "Show Captcha on"
+msgstr ""
+
+#: admin/anr-admin-class.php:168
+msgid "Hide Captcha for logged in users?"
+msgstr ""
+
+#: admin/anr-admin-class.php:169
+msgid "Show captcha if javascript disabled?"
+msgstr ""
+
+#: admin/anr-admin-class.php:169
+msgid ""
+"If JavaScript is a requirement for your site, we advise that you do NOT "
+"check this"
+msgstr ""
+
+#: admin/anr-admin-class.php:170
+msgid "Save Options"
+msgstr ""
+
+#: admin/anr-admin-class.php:173 admin/anr-admin-class.php:250
+msgid ""
+"For paid support pleasse visit <a href='%s' target='_blank'>Advanced "
+"noCaptcha reCaptcha</a>"
+msgstr ""
+
+#: admin/anr-admin-class.php:186
+msgid "Plugin Author"
+msgstr ""
+
+#: admin/anr-admin-class.php:211
+msgid "No Permission!"
+msgstr ""
+
+#: admin/anr-admin-class.php:215
+msgid "Sorry, your nonce did not verify!"
+msgstr ""
+
+#: admin/anr-admin-class.php:241
+msgid "Advanced noCaptcha reCaptcha Setup Instruction"
+msgstr ""
+
+#: admin/anr-admin-class.php:243
+msgid ""
+"Get your site key and secret key from <a href='%s' target='_blank'>GOOGLE</"
+"a> if you do not have already."
+msgstr ""
+
+#: admin/anr-admin-class.php:244
+msgid ""
+"Goto <a href='%s'>SETTINGS</a> page and set up as you need. and ENJOY..."
+msgstr ""
+
+#: admin/anr-admin-class.php:245
+msgid "Implement noCaptcha in Contact Form 7"
+msgstr ""
+
+#: admin/anr-admin-class.php:246
+msgid "To show noCaptcha use "
+msgstr ""
+
+#: admin/anr-admin-class.php:247
+msgid "If you want to implement noCaptcha in any other custom form"
+msgstr ""
+
+#: admin/anr-admin-class.php:248
+msgid "To show form field use "
+msgstr ""
+
+#: admin/anr-admin-class.php:249
+msgid "To verify use "
+msgstr ""
+
+#: anr-captcha-class.php:94
+msgid "<strong>ERROR</strong>: "
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Advanced noCaptcha reCaptcha"
+msgstr ""
+
+#. #-#-#-#-#  plugin.pot (Advanced noCaptcha reCaptcha 1.1)  #-#-#-#-#
+#. Plugin URI of the plugin/theme
+#. #-#-#-#-#  plugin.pot (Advanced noCaptcha reCaptcha 1.1)  #-#-#-#-#
+#. Author URI of the plugin/theme
+msgid "https://shamimbiplob.wordpress.com/contact-us/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Show noCaptcha in Login, Register, Lost Password, Reset Password, Comment "
+"Form (after Comment textarea before submit button). Also can implement in "
+"any other form easily."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Shamim"
+msgstr ""

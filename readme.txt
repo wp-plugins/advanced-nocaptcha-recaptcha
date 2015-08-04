@@ -1,9 +1,9 @@
 === Advanced noCaptcha reCaptcha ===
 Contributors: shamim51
-Tags: recaptcha,nocaptcha,no captcha,bot,spam,captcha,contact form 7 captcha
+Tags: recaptcha,nocaptcha,no captcha,bot,spam,captcha,contact form 7 captcha,widget,plugin,sidebar,shortcode,page,posts,comments,google
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=4HKBQ3QFSCPHJ&lc=US&item_name=Front%20End%20PM&item_number=Front%20End%20PM&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Requires at least: 2.8
-Tested up to: 4.2
+Tested up to: 4.2.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -36,7 +36,7 @@ Show noCaptcha in Comment Form (after Comment textarea before submit button), Co
 == Installation ==
 1. Upload "advanced-nocaptcha-recaptcha" to the "/wp-content/plugins/" directory.
 1. Activate the plugin through the "Plugins" menu in WordPress.
-1. Go to plagin setting page for setup.
+1. Go to plugin settings page for setup.
 
 
 == Frequently Asked Questions ==
@@ -52,9 +52,8 @@ Yes. this plugin is translate ready. But If your language is not available you c
 3. Captcha in Login Form
 4. Captcha in Register Form
 5. Captcha in Lost Password Form
-6. Captcha in Reset Password Form
-7. Advanced noCaptcha reCaptcha Settings
-8. Advanced noCaptcha reCaptcha Setup Instruction
+6. Advanced noCaptcha reCaptcha Settings
+7. Advanced noCaptcha reCaptcha Setup Instruction
 
 == Changelog ==
 

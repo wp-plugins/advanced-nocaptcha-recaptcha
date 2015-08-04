@@ -43,7 +43,7 @@ if (!class_exists('anr_captcha_class'))
 					
 			if ( '1' == anr_get_option( 'comment' )) {
 					add_filter ('comment_form_field_comment', array(&$this, 'comment_form_field') );
-					add_filter ('pre_comment_on_post', array(&$this, 'comment_verify') );
+					add_action ('pre_comment_on_post', array(&$this, 'comment_verify') );
 				}
 			
 			if ( function_exists( 'wpcf7_add_shortcode' )) {
@@ -138,7 +138,7 @@ if (!class_exists('anr_captcha_class'))
 				}
 		}
 		
-	function comment_verify( $errors, $user )
+	function comment_verify( $comment_post_ID )
 		{
 			
 			if ( ! $this->verify() ) {
