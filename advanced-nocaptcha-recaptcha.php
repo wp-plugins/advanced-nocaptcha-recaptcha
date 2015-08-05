@@ -2,7 +2,7 @@
 /*
 Plugin Name: Advanced noCaptcha reCaptcha
 Plugin URI: https://shamimbiplob.wordpress.com/contact-us/
-Description: Show noCaptcha in Login, Register, Lost Password, Reset Password, Comment Form (after Comment textarea before submit button). Also can implement in any other form easily.
+Description: Show noCaptcha in Comment Form (after Comment textarea before submit button), Contact Form 7, bbPress, Login, Register, Lost Password, Reset Password. Also can implement in any other form easily.
 Version: 1.2
 Author: Shamim
 Author URI: https://shamimbiplob.wordpress.com/contact-us/

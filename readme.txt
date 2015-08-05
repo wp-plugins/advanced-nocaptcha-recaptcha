@@ -8,7 +8,7 @@ Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Show noCaptcha in Comment Form (after Comment textarea before submit button), Contact Form 7, Login, Register, Lost Password, Reset Password.
+Show noCaptcha in Comment Form (after Comment textarea before submit button), Contact Form 7, bbpress, Login, Register, Lost Password, Reset Password.
 
 == Description ==
 
