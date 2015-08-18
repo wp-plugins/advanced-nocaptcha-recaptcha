@@ -23,7 +23,7 @@ if (!class_exists('anr_captcha_class'))
 			
 			if ( '1' == anr_get_option( 'login' ) && !defined('XMLRPC_REQUEST')) {
 					add_action ('login_form', array(&$this, 'form_field'), 99);
-					add_filter ('wp_authenticate_user', array(&$this, 'login_verify'), 10, 2 );
+					add_filter ('authenticate', array(&$this, 'login_verify') );
 				}
 			
 			if ( '1' == anr_get_option( 'registration' )) {
@@ -108,7 +108,7 @@ if (!class_exists('anr_captcha_class'))
 			$errors->add('anr_error', $error_message);
 		}
 		
-	function login_verify (  $user, $password )
+	function login_verify ( $user )
 		{
 			if ( ! $this->verify() ) {
 			$error_message = anr_get_option( 'error_message' );
