@@ -23,7 +23,7 @@ if (!class_exists('anr_captcha_class'))
 			
 			if ( '1' == anr_get_option( 'login' ) && !defined('XMLRPC_REQUEST')) {
 					add_action ('login_form', array(&$this, 'form_field'), 99);
-					add_filter ('authenticate', array(&$this, 'login_verify') );
+					add_filter ('authenticate', array(&$this, 'login_verify'), 999 );
 				}
 			
 			if ( '1' == anr_get_option( 'registration' )) {
