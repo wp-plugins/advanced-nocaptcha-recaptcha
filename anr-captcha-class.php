@@ -43,7 +43,7 @@ if (!class_exists('anr_captcha_class'))
 					
 			if ( '1' == anr_get_option( 'comment' )) {
 					add_filter ('comment_form_field_comment', array(&$this, 'comment_form_field') );
-					add_action ('pre_comment_on_post', array(&$this, 'comment_verify') );
+					add_filter ('preprocess_comment', array(&$this, 'comment_verify') );
 				}
 			
 			if ( function_exists( 'wpcf7_add_shortcode' )) {
@@ -148,13 +148,15 @@ if (!class_exists('anr_captcha_class'))
 				}
 		}
 		
-	function comment_verify( $comment_post_ID )
+	function comment_verify( $commentdata )
 		{
 			
 			if ( ! $this->verify() ) {
-			$error_message = anr_get_option( 'error_message' );
-			wp_die( $error_message, 200 );
-				}
+				$error_message = anr_get_option( 'error_message' );
+				wp_die( $error_message, 200 );
+			}
+			
+			return $commentdata;
 		}
 		
 	function wpcf7_form_field( $tags )
