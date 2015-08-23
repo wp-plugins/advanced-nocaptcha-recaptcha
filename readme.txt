@@ -3,7 +3,7 @@ Contributors: shamim51
 Tags: recaptcha,nocaptcha,no captcha,bot,spam,captcha,contact form 7 captcha,widget,plugin,sidebar,shortcode,page,posts,comments,google,bbpress
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=4HKBQ3QFSCPHJ&lc=US&item_name=Front%20End%20PM&item_number=Front%20End%20PM&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Requires at least: 2.8
-Tested up to: 4.2.4
+Tested up to: 4.3
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
