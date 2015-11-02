@@ -16,7 +16,17 @@ if (!class_exists('anr_admin_class'))
 		
     function actions_filters()
     {
-	add_action('admin_menu', array(&$this, 'MenuPage'));
+		if ( is_multisite() ) {
+			$same_settings = apply_filters( 'anr_same_settings_for_all_sites', false );
+		} else {
+			$same_settings = false;
+		}
+		if ( $same_settings ) {
+			add_action('network_admin_menu', array(&$this, 'MenuPage'));
+		} else {
+			add_action('admin_menu', array(&$this, 'MenuPage'));
+		}
+		
 	add_filter('plugin_action_links', array(&$this, 'add_settings_link'), 10, 2 );
     }
 
@@ -39,7 +49,6 @@ if (!class_exists('anr_admin_class'))
     {
 	  $token = wp_create_nonce( 'anr-admin-settings' );
 	  $url = 'https://shamimbiplob.wordpress.com/contact-us/';
-	  $actionURL = admin_url( 'admin.php?page=anr-admin-settings' );
 	  $ReviewURL = 'https://wordpress.org/support/view/plugin-reviews/advanced-nocaptcha-recaptcha';
 	  echo "<style>
 			input[type='text'], textarea, select {
@@ -98,13 +107,14 @@ if (!class_exists('anr_admin_class'))
 							);
 							
 		$locations = array(	 
-							__( 'Login Form', 'anr' )   		=> 'login',
-							__( 'Registration Form', 'anr' )   	=> 'registration',
-							__( 'Lost Password Form', 'anr' )   => 'lost_password',
-							__( 'Reset Password Form', 'anr' )  => 'reset_password',
-							__( 'Comment Form', 'anr' )   		=> 'comment',
-							__( 'bbPress New topic', 'anr' )   	=> 'bb_new',
-							__( 'bbPress reply to topic', 'anr' )=> 'bb_reply',
+							__( 'Login Form', 'anr' )   				=> 'login',
+							__( 'Registration Form', 'anr' )   			=> 'registration',
+							__( 'Multisite User Signup Form', 'anr' )   => 'ms_user_signup',
+							__( 'Lost Password Form', 'anr' )   		=> 'lost_password',
+							__( 'Reset Password Form', 'anr' )  		=> 'reset_password',
+							__( 'Comment Form', 'anr' )   				=> 'comment',
+							__( 'bbPress New topic', 'anr' )   			=> 'bb_new',
+							__( 'bbPress reply to topic', 'anr' )		=> 'bb_reply',
 									
 							);
 									
@@ -125,7 +135,7 @@ if (!class_exists('anr_admin_class'))
 		<div class='postbox'><div class='inside'>
 	  	  <h2>".__("Advanced noCaptcha reCaptcha Settings", 'anr')."</h2>
 		  <h5>".sprintf(__("If you like this plugin please <a href='%s' target='_blank'>Review in Wordpress.org</a> and give 5 star", 'anr'),esc_url($ReviewURL))."</h5>
-          <form method='post' action='$actionURL'>
+          <form method='post' action=''>
           <table>
           <thead>
           <tr><th width = '50%'>".__("Setting", 'anr')."</th><th width = '50%'>".__("Value", 'anr')."</th></tr>
@@ -227,7 +237,16 @@ function anr_admin_sidebar()
 	  //var_dump($options);
 		
 		if (count($errors->get_error_codes())==0){
-        update_option('anr_admin_options', $options);
+			if ( is_multisite() ) {
+				$same_settings = apply_filters( 'anr_same_settings_for_all_sites', false );
+			} else {
+				$same_settings = false;
+			}
+			if ( $same_settings ) {
+				update_site_option('anr_admin_options', $options);
+			} else {
+				update_option('anr_admin_options', $options);
+			}
         }
 		return $errors;
       }
@@ -248,7 +267,7 @@ function anr_admin_sidebar()
           <h2>".__("Advanced noCaptcha reCaptcha Setup Instruction", 'anr')."</h2>
           <p><ul>
 		  <li>".sprintf(__("Get your site key and secret key from <a href='%s' target='_blank'>GOOGLE</a> if you do not have already.", 'anr'),esc_url('https://www.google.com/recaptcha/admin'))."</li>
-		  <li>".sprintf(__("Goto <a href='%s'>SETTINGS</a> page and set up as you need. and ENJOY...", 'anr'),esc_url(admin_url( 'admin.php?page=anr-admin-settings' )))."</li><br/>
+		  <li>".__("Goto SETTINGS page of this plugin and set up as you need. and ENJOY...", 'anr')."</li><br/>
 		  <h3>".__("Implement noCaptcha in Contact Form 7", 'anr')."</h3><br />
           <li>".__("To show noCaptcha use ", 'anr')."<code>[anr_nocaptcha g-recaptcha-response]</code></li><br />
 		  <h3>".__("If you want to implement noCaptcha in any other custom form", 'anr')."</h3><br />

@@ -31,6 +31,11 @@ if (!class_exists('anr_captcha_class'))
 					add_filter ('registration_errors', array(&$this, 'registration_verify'), 10, 3 );
 				}
 			
+			if ( '1' == anr_get_option( 'ms_user_signup' )) {
+					add_action ('signup_extra_fields', array(&$this, 'ms_form_field'), 99);
+					add_filter ('wpmu_validate_user_signup', array(&$this, 'ms_form_field_verify'));
+				}
+			
 			if ( '1' == anr_get_option( 'lost_password' )) {
 					add_action ('lostpassword_form', array(&$this, 'form_field'), 99);
 					add_action ('allow_password_reset', array(&$this, 'lostpassword_verify'), 10, 2); //lostpassword_post does not return wp_error
@@ -72,6 +77,22 @@ if (!class_exists('anr_captcha_class'))
 				
 			anr_captcha_form_field();
 			
+		}
+	
+	function ms_form_field( $errors )
+
+		{
+			$loggedin_hide 	= anr_get_option( 'loggedin_hide' ); 
+
+			if ( is_user_logged_in() && $loggedin_hide )
+				return;
+
+				if ( $errmsg = $errors->get_error_message('anr_error') ) {
+					echo '<p class="error">' . $errmsg . '</p>';
+				}
+
+				anr_captcha_form_field();
+
 		}
 		
 	function comment_form_field( $defaults )
@@ -126,6 +147,17 @@ if (!class_exists('anr_captcha_class'))
 			}
 			
 			return $errors;
+		}
+	
+	function ms_form_field_verify( $result )
+
+		{
+			if ( ! $this->verify() ) {
+			$error_message = str_replace(__('<strong>ERROR</strong>: ', 'anr'), '', anr_get_option( 'error_message' ));
+			$result['errors']->add( 'anr_error', $error_message );
+			}
+
+			return $result;
 		}
 		
 	function lostpassword_verify( $result, $user_id )

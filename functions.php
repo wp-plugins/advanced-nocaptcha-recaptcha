@@ -1,11 +1,19 @@
 <?php
 
 
-if ( !function_exists('anr_get_option') ) :
 	
 function anr_get_option( $option, $default = '', $section = 'anr_admin_options' ) {
 	
-    $options = get_option( $section );
+    if ( is_multisite() ) {
+		$same_settings = apply_filters( 'anr_same_settings_for_all_sites', false );
+	} else {
+		$same_settings = false;
+	}
+	if ( $same_settings ) {
+		$options = get_site_option( $section );
+	} else {
+		$options = get_option( $section );
+	}
 
     if ( isset( $options[$option] ) ) {
         return $options[$option];
@@ -13,8 +21,6 @@ function anr_get_option( $option, $default = '', $section = 'anr_admin_options' 
 
     return $default;
 }
-	
-endif;
 	
 function anr_translation()
 	{
@@ -118,10 +124,11 @@ function anr_captcha_form_field( $echo = true )
 							</noscript>";
 				}
 		
-		if ( $echo )
+		if ( $echo ) {
 			echo $field;
-			
-		return $field;
+		} else {
+			return $field;
+		}
 		
 	}
 	
@@ -140,7 +147,7 @@ function anr_verify_captcha()
 		$url = "https://www.google.com/recaptcha/api/siteverify";
 
 		// make a POST request to the Google reCAPTCHA Server
-		$request = wp_remote_post( $url, array('body' => array( 'secret' => $secre_key, 'response' => $response, 'remoteip' => $remoteip ) ) );
+		$request = wp_remote_post( $url, array( 'timeout' => 10, 'body' => array( 'secret' => $secre_key, 'response' => $response, 'remoteip' => $remoteip ) ) );
 
 		if ( is_wp_error( $request ) )
    			return false;
