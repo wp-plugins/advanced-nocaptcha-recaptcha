@@ -1,7 +1,6 @@
 <?php
 
 
-	
 function anr_get_option( $option, $default = '', $section = 'anr_admin_options' ) {
 	
     if ( is_multisite() ) {
